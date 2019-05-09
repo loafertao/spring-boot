@@ -12,11 +12,16 @@
 		<div class="app-location">
 			<h2>App信息管理平台</h2>
 			<div class="line"><span></span></div>
-			<div class="location"><img src="images/location.png" class="img-responsive" alt="" /></div>
-			<form>
+			<div class="location"><img src="../static/images/location.png" class="img-responsive" alt="" /></div>
+			<form action="register" method="post">
 				<input type="text" id="devNo" name="devNo" placeholder="请输入您的编号进行注册">
+				<input type="text" id="devName" name="devName" placeholder="请输入您的姓名">
 				<input type="password" id="password" name="password" placeholder="请输入您的密码">
-				<div class="submit"><input type="submit" onClick="myFunction()" value="注册" ></div>
+				<input type="text" id="cellphone" name="cellphone" placeholder="请输入您电话号码">
+				<input type="text" id="email" name="email" placeholder="请输入您的电子邮箱">
+				<input type="text" id="devInfo" name="devInfo" placeholder="请输入您的简介">
+				
+				<div class="submit"><input type="submit" value="注册"></div>
 				<div class="clear"></div>
 			</form>
 		</div>

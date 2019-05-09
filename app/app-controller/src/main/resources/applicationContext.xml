@@ -46,7 +46,7 @@
 	<!-- 配置Mybatis数据持久层接口扫描信息[BEGIN] -->
 	<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
-		<property name="basePackage" value="com.coodman.app.*.dao"/>
+		<property name="basePackage" value="com.coodman.app.dao"/>
 	</bean>
 	<!-- 配置Mybatis数据持久层接口扫描信息[END] -->
 	
