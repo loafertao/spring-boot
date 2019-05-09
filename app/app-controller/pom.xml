@@ -12,9 +12,6 @@
   <version>1.0</version>
   <packaging>war</packaging>
 
-  <name>app-controller Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,6 +20,15 @@
   </properties>
 
   <dependencies>
+  
+  		<!-- 添加app-service模块依赖关系[BEGIN] -->
+  		<dependency>
+  			<groupId>cn.kgc</groupId>
+  			<artifactId>app-service</artifactId>
+  			<version>${version}</version>
+  		</dependency>
+  		<!-- 添加app-service模块依赖关系[END] -->
+  		
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -32,7 +38,7 @@
   </dependencies>
 
   <build>
-    <finalName>app-controller</finalName>
+    <finalName>app</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

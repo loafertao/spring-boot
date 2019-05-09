@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ 
   <modelVersion>4.0.0</modelVersion>
+  <artifactId>app-dao</artifactId>
+  
   <parent>
+   	<groupId>cn.kgc</groupId>
     <artifactId>app</artifactId>
-    <groupId>cn.kgc</groupId>
     <version>1.0</version>
   </parent>
-
-  <groupId>cn.kgc</groupId>
-  <artifactId>app-dao</artifactId>
-  <version>1.0</version>
-
-  <name>app-dao</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -22,6 +17,14 @@
   </properties>
 
   <dependencies>
+  		<!-- 添加app-commons模块依赖关系[BEGIN] -->
+  		<dependency>
+  			<groupId>cn.kgc</groupId>
+  			<artifactId>app-commons</artifactId>
+  			<version>${version}</version>
+  		</dependency>
+  		<!-- 添加app-commons模块依赖关系[END] -->
+  	
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
