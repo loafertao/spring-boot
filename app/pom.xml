@@ -7,5 +7,6 @@
   <packaging>pom</packaging>
   <modules>
     <module>app-commons</module>
+    <module>app-dao</module>
   </modules>
 </project>
