@@ -8,5 +8,6 @@
   <modules>
     <module>app-commons</module>
     <module>app-dao</module>
+    <module>app-service</module>
   </modules>
 </project>
