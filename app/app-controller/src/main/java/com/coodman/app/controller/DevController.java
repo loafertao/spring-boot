@@ -13,8 +13,9 @@ import com.coodman.app.base.controller.BaseController;
 @RequestMapping("/dev")
 public class DevController extends BaseController{
 	
+	
 	/**
-	 * <b>后台管理者登录页面<b>
+	 * <b>APP开发者登录页面<b>
 	 * @return dev/dev_login
 	 * @since 2019-05-09
 	 */
@@ -22,5 +23,9 @@ public class DevController extends BaseController{
 	public String getLoginForm() throws Exception{
 		return "dev/dev_login";
 	}
+	
+	
+	
+
 
 }
