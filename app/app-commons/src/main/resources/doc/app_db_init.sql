@@ -75,12 +75,12 @@ INSERT INTO sys_category(category_code, category_name, create_admin, update_admi
 DROP TABLE IF EXISTS sys_dev;
 CREATE TABLE sys_dev (
   dev_id INT(10) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  dev_no VARCHAR(255) NOT NULL COMMENT '编号',
+  dev_no VARCHAR(255)  COMMENT '编号',
   dev_name VARCHAR(255) NOT NULL COMMENT '姓名',
   PASSWORD VARCHAR(500) NOT NULL COMMENT '登录密码',
   cellphone VARCHAR(100) NOT NULL COMMENT '联系电话',
   email VARCHAR(500) NOT NULL COMMENT '电子邮件',
-  dev_info VARCHAR(500) NOT NULL COMMENT '开发人员简介',
+  dev_info VARCHAR(500)  COMMENT '开发人员简介',
   create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '注册时间',
   update_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (dev_id)

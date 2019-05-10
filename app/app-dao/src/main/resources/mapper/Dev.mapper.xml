@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.coodman.app.dao.DevDao">
+ 
+ 	<insert id="saveDev"  parameterType="com.coodman.app.beans.entity.Developer" useGeneratedKeys="true" keyProperty="devId" >
+ 		insert into sys_dev(
+			 			dev_no,
+				 		dev_name,
+				 		PASSWORD,
+				 		cellphone,
+				 		email,
+				 		dev_info,
+				 		create_date,
+				 		update_date
+ 						)
+			 		values(
+			 			#{devNo},
+			 			#{devName},
+			 			#{password},
+			 			#{cellphone},
+			 			#{email},
+			 			#{devInfo},
+			 			#{createDate},
+			 			#{updateDate}
+			 		)
+ 	</insert>
+ 	
+ 	<select id="findByDevNo" parameterType="java.lang.String" resultMap="devMap">
+ 		select
+	 		dev_id,
+	 		dev_no,
+	 		dev_name,
+	 		PASSWORD,
+	 		cellphone,
+	 		email,
+	 		dev_info,
+	 		create_date,
+	 		update_date
+ 		from
+ 			sys_dev 
+ 		where 
+ 			dev_no=#{devNo} 
+ 		
+ 	</select>
+ 	
+ 	<select id="fingDevByQuery" parameterType="com.coodman.app.beans.entity.Developer" resultMap="devMap">
+ 		select
+	 		dev_id,
+	 		dev_no,
+	 		dev_name,
+	 		PASSWORD,
+	 		cellphone,
+	 		email,
+	 		dev_info,
+	 		create_date,
+	 		update_date
+ 		from
+ 			sys_dev 
+ 		where 
+ 		<if test="devId != null">dev_id=#{devId} and</if>
+ 		<if test="devNo != null">dev_no=#{devNo} and</if>
+ 		<if test="password != null">PASSWORD=#{password} and</if>
+ 		1=1
+ 	</select>
+ 	<resultMap type="com.coodman.app.beans.entity.Developer" id="devMap">
+ 		<id property="devId" column="dev_id"/>
+ 		<result property="devNo" column="dev_no"/>
+ 		<result property="devName" column="dev_name"/>
+ 		<result property="password" column="PASSWORD"/>
+ 		<result property="cellphone" column="cellphone"/>
+ 		<result property="email" column="email"/>
+ 		<result property="devInfo" column="dev_info"/>
+ 		<result property="createDate" column="create_date"/>
+ 		<result property="updateDate" column="update_date"/>
+ 	</resultMap>
+ </mapper>
