@@ -10,7 +10,7 @@
 	<body>
 		<div id="container">
 			<form action="devLogin" method="post">
-				<div class="login">登录</div>
+				<div class="login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——开发者平台登录——</div>
 				<div class="username-text">登录名:</div>
 				<div class="password-text">登录密码:</div>
 				<div class="username-field">

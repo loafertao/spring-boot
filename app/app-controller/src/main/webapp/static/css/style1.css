@@ -46,8 +46,8 @@ body h1 {
   font-weight: 300;
 }
 .app-location{
-  width:28%;
-  margin:0 auto;
+  	width:28%;
+	 margin:0 auto;
     text-align: center;
     background: #323542;
       padding:4em;
@@ -71,9 +71,27 @@ form {
 }
 /*-----*/
 .location img {
-  margin: 2em 0;
+  margin: 2em 20%;
 }
 .app-location input[type="text"],.app-location input[type="password"]{
+  width: 81.2%;
+  padding: 1.1em 1em 1.1em 4em;
+  color: #858282;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+  font-weight: 500;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -webkit- border-radius: 0.3em;
+  margin:0.7em 0;
+   background: url("../images/icons.png") no-repeat 14px 16px #474a55;
+  }
+  
+  .app-location textarea{
   width: 81.2%;
   padding: 1.1em 1em 1.1em 4em;
   color: #858282;
@@ -96,14 +114,14 @@ form {
   .submit {
   margin: 1em 0;
   }
-.app-location input[type="submit"]{
+.app-location input[type="button"]{
   font-size: 20px;
   font-weight: 300;
   color: #fff;
   cursor: pointer;
   outline: none;
   padding: 17px 15px;
-  width:100%;
+  width:80%;
   border:3px solid #0bd38a;
   background: #0bd38a;
   border-radius: 0.3em;

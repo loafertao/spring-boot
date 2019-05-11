@@ -1,6 +1,9 @@
 package com.coodman.app.service.impl;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -24,40 +27,36 @@ public class DevServiceImpl implements DevService {
 	@Resource(name = "devDao")
 	private DevDao devDao;
 	/**
-	 * 开发者进行注册保存
-	 * @param dev
-	 * @return boolean
+	 * <b>使用开发者编号查找对应的开发者信息</b>
+	 * @param devNo
+	 * @return Developer
+	 * @throws Exception
 	 */
-	public boolean saveDevInfo(Developer dev) {
-		//判断编号和密码是否为空
-		if (dev.getDevNo() != null && !"".equals(dev.getDevNo().trim())
-				&& dev.getPassword()!= null && !"".equals(dev.getPassword().trim())) {
-			//判断当前编号是否存在
-			Developer developerNo = devDao.findByDevNo(dev.getDevNo());
-			if (developerNo == null) {
-				//developerNo为空，可以注册，完善developer对象
-				dev.setDevNo(dev.getDevNo());
-				dev.setDevName(dev.getDevName());
-				dev.setPassword(dev.getPassword());
-				dev.setCellphone(dev.getCellphone());
-				dev.setEmail(dev.getEmail());
-				dev.setDevInfo(dev.getDevInfo());
-				dev.setCreateDate(new Date());
-				dev.setUpdateDate(new Date());
-				//进行保存
-				boolean flag = devDao.saveDev(dev);
-				return flag;
-			}
+	public Developer getByDevNo(String devNo) throws Exception {
+		//封装查询参数map集合
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("devNo", devNo);
+		//建查询的信息放入list集合
+		List<Developer> devList = devDao.findByDevNoList(param);
+		if (devList != null && devList.size()>0) {
+			return devList.get(0);
 		}
-		return false;
+ 		return null;
 	}
 	/**
-	 * 开发者进行登录
+	 * 保存开发者信息
 	 * @param dev
 	 * @return Developer
+	 * @throws Exception
 	 */
-	public Developer loginDev(Developer dev) {
-		dev = devDao.fingDevByQuery(dev);
+	public Developer saveDevInfo(Developer dev) throws Exception {
+		//使用数据持久层保存数据
+		devDao.saveDevInfo(dev);
+		//根据主键生成对应的devNo信息
+		String devNo = DevUtil.createDevNo(dev.getDevId());
+		//将devNo重新设定，进行更改
+		dev.setDevNo(devNo);
+		devDao.updateDev(dev);
 		return dev;
 	}
 

@@ -39,6 +39,7 @@
 	<!-- 配置Mybatis的SqlSessionFactory信息[BEGIN] -->
 	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
+		<property name="typeAliasesPackage" value="com.coodman.app.beans.entity"></property>
 		<property name="mapperLocations" value="classpath*:/mapper/*.mapper.xml"/>
 	</bean>
 	<!-- 配置Mybatis的SqlSessionFactory信息[END] -->

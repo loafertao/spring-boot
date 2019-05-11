@@ -12,13 +12,20 @@ import com.coodman.app.beans.entity.Developer;
 public interface DevService {
 
 	/**
-	 * 开发者进行注册保存
-	 * @param dev
-	 * @return boolean
+	 * <b>使用开发者编号查找对应的开发者信息</b>
+	 * @param devNo
+	 * @return Developer
+	 * @throws Exception
 	 */
-	public boolean saveDevInfo(Developer dev);
+	public Developer getByDevNo(String devNo) throws Exception;
 
-	public Developer loginDev(Developer dev);
+	/**
+	 * 保存开发者信息
+	 * @param dev
+	 * @return Developer
+	 * @throws Exception
+	 */
+	public Developer saveDevInfo(Developer dev) throws Exception;
 	
 	
 }

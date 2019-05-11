@@ -94,7 +94,7 @@ CREATE TABLE sys_dictionary (
   dictionary_name VARCHAR(255) NOT NULL COMMENT '字典名称',
   create_admin INT(10) NOT NULL COMMENT '创建人',
   create_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  update_admin INT(10) NOT NULL COMMENT '更信任',
+  update_admin INT(10) NOT NULL COMMENT '更新人',
   update_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (dictionary_id)
 ) ENGINE=INNODB CHARSET=utf8mb4;

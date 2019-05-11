@@ -4,30 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.coodman.app.dao.DevDao">
  
- 	<insert id="saveDev"  parameterType="com.coodman.app.beans.entity.Developer" useGeneratedKeys="true" keyProperty="devId" >
+ 	<insert id="saveDevInfo"  parameterType="Developer" useGeneratedKeys="true" keyProperty="devId" >
  		insert into sys_dev(
-			 			dev_no,
 				 		dev_name,
 				 		PASSWORD,
 				 		cellphone,
 				 		email,
-				 		dev_info,
-				 		create_date,
-				 		update_date
+				 		dev_info
  						)
 			 		values(
-			 			#{devNo},
 			 			#{devName},
 			 			#{password},
 			 			#{cellphone},
 			 			#{email},
-			 			#{devInfo},
-			 			#{createDate},
-			 			#{updateDate}
-			 		)
+			 			#{devInfo}
+			 				)
  	</insert>
  	
- 	<select id="findByDevNo" parameterType="java.lang.String" resultMap="devMap">
+ 	<select id="findByDevNoList" parameterType="java.util.Map" resultMap="devMap">
  		select
 	 		dev_id,
 	 		dev_no,
@@ -41,30 +35,24 @@
  		from
  			sys_dev 
  		where 
- 			dev_no=#{devNo} 
- 		
- 	</select>
- 	
- 	<select id="fingDevByQuery" parameterType="com.coodman.app.beans.entity.Developer" resultMap="devMap">
- 		select
-	 		dev_id,
-	 		dev_no,
-	 		dev_name,
-	 		PASSWORD,
-	 		cellphone,
-	 		email,
-	 		dev_info,
-	 		create_date,
-	 		update_date
- 		from
- 			sys_dev 
- 		where 
- 		<if test="devId != null">dev_id=#{devId} and</if>
  		<if test="devNo != null">dev_no=#{devNo} and</if>
- 		<if test="password != null">PASSWORD=#{password} and</if>
  		1=1
  	</select>
- 	<resultMap type="com.coodman.app.beans.entity.Developer" id="devMap">
+ 	
+ 	<update id="updateDev" parameterType="Developer">
+ 		update sys_dev set
+ 			dev_no=#{devNo},
+	 		dev_name=#{devName},
+	 		PASSWORD=#{password},
+	 		cellphone=#{cellphone},
+	 		email=#{email},
+	 		dev_info=#{devInfo}
+	 	where 
+	 		dev_id=#{devId}
+ 	</update>
+ 	
+ 	
+ 	<resultMap type="Developer" id="devMap">
  		<id property="devId" column="dev_id"/>
  		<result property="devNo" column="dev_no"/>
  		<result property="devName" column="dev_name"/>
