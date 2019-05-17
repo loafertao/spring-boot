@@ -1,6 +1,5 @@
 package com.coodman.app.service.impl;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,7 +13,6 @@ import com.coodman.app.beans.entity.Developer;
 import com.coodman.app.dao.DevDao;
 import com.coodman.app.service.DevService;
 import com.coodman.app.util.DevUtil;
-import com.coodman.app.util.MD5Util;
 /**
  * <b>开发者平台业务层实现类</b>
  * @author Coodman

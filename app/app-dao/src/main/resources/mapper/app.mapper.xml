@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.coodman.app.dao.AppDao">
+ 	<select id="findAppListByPageQuery" parameterType="java.util.Map" resultMap="appMap" >
+ 	 		select 
+				ai.app_id,
+	 			ai.app_name,
+	 			ai.platform_id,
+	 			d.dictionary_name,
+	 			ai.`STATUS`,
+	 			d2.`dictionary_name`,
+	 			ai.examine,
+	 			d1.dictionary_name,
+	 			ai.dev_id,
+	 			dev.dev_name,
+	 			c.category_id,
+	 			c.category_name,
+	 			ai.checker,
+	 			a.admin_name	
+ 			from `sys_app_info` ai 
+			join  sys_dev dev on ai.`app_id`=dev.`dev_id`
+			join `sys_category` c on ai.`app_id`=c.`category_id`
+			join `sys_dictionary` d on ai.`platform_id`=d.`parent_id`
+			join `sys_dictionary` d1 on ai.`examine`= d1.`parent_id`
+			join `sys_dictionary`d2 on ai.`STATUS`= d2.`parent_id`
+			join sys_admin a on ai.`app_id`=a.`admin_id`
+			
+		where
+			<if test="devNo!=null">dev.dev_no=#{devNo} and</if>
+			1=1
+	 		limit #{beginIndex},#{size}
+	 		
+ 	</select>
+ 	
+ 	<resultMap type="AppInfo" id="appMap">
+ 		<id property="appId" javaType="java.lang.Long" column="app_id"/>
+ 		<result property="appName" javaType="java.lang.String" column="app_name"/>
+ 		<result property="logo" javaType="java.lang.String" column="logo"/>
+ 		<result property="appInfo" javaType="java.lang.String" column="app_info"/>
+ 		<result property="createDate" javaType="java.util.Date" column="create_date"/>
+ 		<result property="updateDate" javaType="java.util.Date" column="update_date"/>
+ 		<association property="category" javaType="Category">
+ 			<id property="categoryId" javaType="java.lang.Long" column="category_id"/>
+ 			<result property="categoryName" javaType="java.lang.String" column="category_name"/>
+ 		</association>
+ 		<association property="platform" javaType="Dictionary">
+ 			<id property="dictionaryId" javaType="java.lang.Long" column="dictionary_id"/>
+ 			<result property="dictionaryName" javaType="java.lang.String" column="dictionary_name"/>
+ 		</association>
+ 		<association property="examine" javaType="Dictionary">
+ 			<id property="dictionaryId" javaType="java.lang.Long" column="dictionary_id"/>
+ 			<result property="dictionaryName" javaType="java.lang.String" column="dictionary_name"/>
+ 		</association>
+ 		<association property="status" javaType="Dictionary">
+ 			<id property="dictionaryId" javaType="java.lang.Long" column="dictionary_id"/>
+ 			<result property="dictionaryName" javaType="java.lang.String" column="dictionary_name"/>
+ 		</association>
+ 		<association property="checker" javaType="Admin">
+ 			<id property="adminId" javaType="java.lang.Long" column="admin_id"/>
+ 			<result property="adminName" javaType="java.lang.String" column="admin_name"/>
+ 		</association>	
+ 		<association property="developer" javaType="Developer">
+ 			<id property="devId" column="dev_id"/>
+ 			<result property="devName" column="dev_name"/>
+ 		</association>
+ 	</resultMap>
+ 	<!-- 查询app版本信息[BEGIN] -->
+ 	<select id="findVersionByPage" parameterType="java.util.Map" resultMap="versionMap">
+ 			select 
+					v.version_id,
+					v.`app_id`,
+					ai.`app_name`,
+					v.apk_name,
+					v.`software_size`,
+					v.`download_link`,
+					v.`support_rom`,
+					v.`checker`,
+					a.`admin_name`,
+					v.`examine`,
+					d.dictionary_name,
+					v.`STATUS`,
+					d1.dictionary_name
+			from sys_version v 
+			join `sys_app_info` ai on v.`app_id`= ai.`app_id`
+			join `sys_dictionary` d on v.`examine`= d.`parent_id`
+			join `sys_dictionary`d1 on ai.`STATUS`= d1.`parent_id`
+			join sys_admin a on v.`checker` = a.`admin_id`
+ 	</select>
+ 	<select id="findAllVersion" resultMap="versionMap">
+ 				select apk_name from sys_version
+ 	</select>
+ 	<!-- 查询app版本信息[BEGIN] -->
+ 	<resultMap type="Version" id="versionMap">
+ 		<id property="versionId" column="version_id"/>
+ 		<result property="apkName" column="apk_name"/>
+ 		<result property="softwareSize" column="software_size"/>
+ 		<result property="downloadLink" column="download_link"/>
+ 		<result property="supportRom" column="support_rom"/>
+ 		<association property="checker" javaType="Admin">
+ 			<id property="adminId" javaType="java.lang.Long" column="admin_id"/>
+ 			<result property="adminName" javaType="java.lang.String" column="admin_name"/>
+ 		</association>
+ 		<association property="examine" javaType="Dictionary">
+ 			<id property="dictionaryId" javaType="java.lang.Long" column="dictionary_id"/>
+ 			<result property="dictionaryName" javaType="java.lang.String" column="dictionary_name"/>
+ 		</association>
+ 		<association property="status" javaType="Dictionary">
+ 			<id property="dictionaryId" javaType="java.lang.Long" column="dictionary_id"/>
+ 			<result property="dictionaryName" javaType="java.lang.String" column="dictionary_name"/>
+ 		</association>
+ 		<association property="appInfo" javaType="AppInfo">
+ 			<id property="appId" javaType="java.lang.Long" column="app_id"/>
+ 			<result property="appName" javaType="java.lang.String" column="app_name"/>
+ 		</association>
+ 	</resultMap>
+ </mapper>

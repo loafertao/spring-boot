@@ -23,7 +23,6 @@ public class AppInfo implements Serializable {
 	private Admin checker;					// 审核人
 	private Date createDate;				// 创建时间
 	private Date updateDate;				// 修改时间
-	
 	public Long getAppId() {
 		return appId;
 	}

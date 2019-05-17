@@ -90,16 +90,13 @@ public class DevController extends BaseController{
 				//登录成功，绑定当前成功用户信息
 				session.setAttribute("dev", dev);
 				//重定向到列表页面
-				return "redirect:list";
+				return "redirect:../app/list";
 				
 			}
 		}
 		return "redirect:devLogin";
 	}
-	@RequestMapping(value = "/list",method = RequestMethod.GET)
-	public String devList() {
-		return "dev/dev_list";
-	}
+	
 
 
 }

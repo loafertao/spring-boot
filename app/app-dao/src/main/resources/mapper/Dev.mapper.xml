@@ -51,7 +51,6 @@
 	 		dev_id=#{devId}
  	</update>
  	
- 	
  	<resultMap type="Developer" id="devMap">
  		<id property="devId" column="dev_id"/>
  		<result property="devNo" column="dev_no"/>
