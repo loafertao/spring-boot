@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="cn.kgc.boot.dao.UserDao">
+ 	<select id="findListUserByPageQuery" parameterType="java.util.Map" resultType="cn.kgc.boot.beans.entity.User" >
+ 		select 
+ 			userId,
+ 			userName,     
+ 			gender,
+ 			cellphone 
+ 		from sys_user
+ 		limit #{begin},#{size}
+ 	</select>
+ 	
+ 	<select id="findListUser" resultType="cn.kgc.boot.beans.entity.User" >
+ 		select 
+ 			userId,
+ 			userName,     
+ 			gender,
+ 			cellphone 
+ 		from sys_user
+ 	</select>
+ 	<insert id="addUsers" parameterType="cn.kgc.boot.beans.entity.User" useGeneratedKeys="true" keyProperty="userId">
+ 		insert into sys_user(
+ 						userName,
+ 						gender,
+ 						cellphone)
+ 					 values(#{userName},#{gender},#{cellphone})
+ 	</insert>
+ 	<select id="getUserById" parameterType="java.util.Map" resultType="cn.kgc.boot.beans.entity.User" >
+ 		select 
+ 			userId,
+ 			userName,     
+ 			gender,
+ 			cellphone 
+ 		from sys_user
+ 			where 
+ 			userId=#{userId}
+ 	</select>
+ 	<update id="updateUser" parameterType="cn.kgc.boot.beans.entity.User" >
+ 		update
+ 			 sys_user 
+  		 set
+  			 userName=#{userName},gender=#{gender},cellphone=#{cellphone}
+  		where userId=#{userId}
+ 	</update>
+ 	<delete id="deleteUser" parameterType="java.lang.Long" >
+ 		delete from sys_user where userId=#{userId}
+ 	</delete>
+ </mapper>

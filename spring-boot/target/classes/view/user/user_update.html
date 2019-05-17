@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<form action="update" method="post">
+			<table>
+				<tr>
+					<td align="right">
+						<label>姓名：</label>
+					</td>
+					<td>	
+						<input type="text" id="userName" name="userName" th:value="${user.userName}">
+						<input type="hidden" id="userId" name="userId" th:value="${user.userId}" >
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<label>性别：</label>
+					</td>
+					<td th:if="${user.gender} == 'M'">
+						<input type="radio" name="gender" th:value="${user.gender}" checked="checked">男&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="gender" th:value="${user.gender}">女&nbsp;&nbsp;&nbsp;
+					</td >
+					<td th:unless="${user.gender} == 'M'">
+						<input type="radio" name="gender" th:value="${user.gender}" checked="checked">男&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="gender" th:value="${user.gender}">女&nbsp;&nbsp;&nbsp;
+					</td >
+				</tr>
+				<tr>
+					<td align="right">
+						<label>联系电话：</label>
+					</td>
+					<td>
+						<input type="text" name="cellphone" th:value="${user.cellphone}" >
+					</td>
+				</tr>
+				<tr>
+	            	<td colspan="2" align="right">
+	            		<button type="submit" style="font-size:16px">确认修改</button>
+	            		<a href="list">返回列表</a>
+	            	</td>
+           	 	</tr>
+			</table>
+			</form>
+	</body>
+</html>

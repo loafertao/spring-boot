@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	</head>
+	<body>
+		<form action="add" method="post">
+			<table>
+				<tr>
+					<td align="right">
+						<label>姓名：</label>
+					</td>
+					<td>	
+						<input type="text" id="userName" name="userName" placeholder="请输入您的姓名" >
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<label>性别：</label>
+					</td>
+					<td>
+						<input type="radio" name="gender" value="M">男&nbsp;&nbsp;&nbsp;
+						<input type="radio" name="gender" value="F">女&nbsp;&nbsp;&nbsp;
+					</td >
+				</tr>
+				<tr>
+					<td align="right">
+						<label>联系电话：</label>
+					</td>
+					<td>
+						<input type="text" id="cellphone" name="cellphone" placeholder="请输入您的电话号码" >
+					</td>
+				</tr>
+				<tr>
+	            	<td colspan="2" align="right">
+	            		<button type="submit" style="font-size:16px">添加</button>
+	            		<a href="list">返回列表</a>
+	            	</td>
+           	 	</tr>
+			</table>
+			</form>
+	</body>
+</html>
