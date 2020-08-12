@@ -17,6 +17,9 @@
   		<druid.version>1.1.16</druid.version>
   		<jackson.version>2.9.8</jackson.version>
   	</properties>
+	
+	
+	<!-- 添加Spring MVC依赖关系[BEGIN] 如果让他瑟瑟-->
   	
   	<dependencies>
   		<!-- 添加Spring MVC依赖关系[BEGIN] -->
