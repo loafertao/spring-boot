@@ -24,9 +24,6 @@
 		   <druid-spring-boot.version>1.1.16</druid-spring-boot.version>
 		</properties>
 
-
-	<!-- 今天要下雨 -->
-	
 	
 		<dependencies>
 			<!-- 添加 spring boot 依赖关系[BEGIN] -->

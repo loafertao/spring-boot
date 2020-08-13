@@ -1,0 +1,5 @@
+cn\kgc\boot\beans\entity\User.class
+cn\kgc\boot\BootApplication.class
+cn\kgc\boot\base\controller\BaseController.class
+cn\kgc\boot\util\ConstantUtil.class
+cn\kgc\boot\beans\vo\Page.class
